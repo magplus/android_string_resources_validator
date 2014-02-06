@@ -1,6 +1,7 @@
 # AndroidStringResourcesValidator
 
-TODO: Write a gem description
+Validates an Android strings.xml resource file against the specification at
+http://developer.android.com/guide/topics/resources/string-resource.html
 
 ## Installation
 
@@ -18,7 +19,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+strings_xml = %q{<resources><string name="hello">It\'s all right</string></resources>}
+validator = AndroidStringResourcesValidator.new(strings_xml)
+validator.valid? # => true
+
+strings_xml = %q{<resources><string name="hello">It's no good</string></resources>}
+validator = AndroidStringResourcesValidator.new(strings_xml)
+validator.valid? # => false
+validator.errors # => ["Apostrophes must be escaped"]
+
+strings_xml = %q{<foo><string name="string_name">text_string</string></foo>}
+validator = AndroidStringResourcesValidator.new(strings_xml)
+validator.valid? # => false
+validator.errors # => ["Not a string resource document"]
+
+strings_xml = %q{<foo>}
+validator = AndroidStringResourcesValidator.new(strings_xml)
+validator.valid? # => false
+validator.errors # => ["Not a valid XML document"]
+```
 
 ## Contributing
 

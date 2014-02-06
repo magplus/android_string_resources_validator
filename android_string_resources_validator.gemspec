@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "android_string_resources_validator"
   spec.version       = AndroidStringResourcesValidator::VERSION
   spec.authors       = ["Karl Eklund"]
-  spec.email         = ["localpart@gmail.com"]
+  spec.email         = ["karl@magplus.com"]
   spec.summary       = %q{TODO: Write a short summary. Required.}
   spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
