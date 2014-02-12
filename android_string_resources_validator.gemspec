@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = AndroidStringResourcesValidator::VERSION
   spec.authors       = ["Karl Eklund"]
   spec.email         = ["karl@magplus.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Validates an Android strings.xml file.}
+  spec.description   = %q{Validates an Android string resource file against the specification at http://developer.android.com/guide/topics/resources/string-resource.html.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
