@@ -1,5 +1,18 @@
 require "android_string_resources_validator/version"
 
-module AndroidStringResourcesValidator
-  # Your code goes here...
+class AndroidStringResourcesValidator
+  def initialize(string)
+    @string = string
+  end
+
+  def valid?
+  end
+
+  def errors
+    []
+  end
+
+  private
+
+  attr_reader :string
 end
