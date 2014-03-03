@@ -2,8 +2,8 @@ require "android_string_resources_validator/version"
 require 'nokogiri'
 
 class AndroidStringResourcesValidator
-  def initialize(string)
-    @string = string
+  def initialize(xml)
+    @xml = xml
   end
 
   def valid?
@@ -11,21 +11,29 @@ class AndroidStringResourcesValidator
   end
 
   def errors
-    strings.map(&:error).compact
+    (strings.map(&:error) << xml_error << document_type_error).compact
   end
 
   private
 
   attr_reader :string
 
+  def xml_error
+    "Not a valid XML document" unless doc.errors.empty?
+  end
+
+  def document_type_error
+    "Not a string resource document" unless doc.xpath('/resources').length == 1
+  end
+
   def strings
-    doc.xpath('//resources/string').map do |element|
+    doc.xpath('/resources/string').map do |element|
       ElementString.new(element.text)
     end
   end
 
   def doc
-    Nokogiri::XML(@string)
+    Nokogiri::XML(@xml)
   end
 
   class ElementString

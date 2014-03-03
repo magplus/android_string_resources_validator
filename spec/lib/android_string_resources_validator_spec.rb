@@ -37,6 +37,20 @@ describe AndroidStringResourcesValidator do
     assert_valid %q{Special identifiers such as %&amp; and %d are allowed}
   end
 
+  specify "Requires valid XML" do
+    invalid_xml = strings_xml('whatever').chop
+    validator = AndroidStringResourcesValidator.new(invalid_xml)
+    validator.errors.should == ["Not a valid XML document"]
+    validator.should_not be_valid
+  end
+
+  specify "Requires a string resources document" do
+    unknown_xml = %q{<foo><string name="ciao">I have no idea what XML this is!<resources>Who knows?</resources></string></foo>}
+    validator = AndroidStringResourcesValidator.new(unknown_xml)
+    validator.errors.should == ["Not a string resource document"]
+    validator.should_not be_valid
+  end
+
   private
 
   def strings_xml(string)
