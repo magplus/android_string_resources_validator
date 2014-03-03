@@ -1,6 +1,7 @@
 # AndroidStringResourcesValidator
 
-[![Circle CI](https://circleci.com/gh/magplus/android_string_resources_validator.png?circle-token=4ad6dc72948c7f0cdc31b92cf292142d599be4ce)](https://circleci.com/gh/magplus/android_string_resources_validator.png?circle-token=4ad6dc72948c7f0cdc31b92cf292142d599be4ce)
+[![Circle CI](https://circleci.com/gh/magplus/android_string_resources_validator.png?circle-token=4ad6dc72948c7f0cdc31b92cf292142d599be4ce)](https://circleci.com/gh/magplus/android_string_resources_validator.png?circle-token=4ad6dc72948c7f0cdc31b92cf292142d599be4ce) [![Code Climate](https://codeclimate.com/github/magplus/android_string_resources_validator.png)](https://codeclimate.com/github/magplus/android_string_resources_validator) ![Gem version](https://badge.fury.io/rb/android_string_resources_validator.png)
+
 
 Validates an Android strings.xml resource file against the specification at
 http://developer.android.com/guide/topics/resources/string-resource.html
